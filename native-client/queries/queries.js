@@ -1,6 +1,4 @@
-import React from "react";
-
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 const getBooksQuery = gql`
   {
@@ -20,7 +18,6 @@ const getAuthorsQuery = gql`
   }
 `;
 
-// Mutation to add a book
 const addBookMutation = gql`
   mutation AddBook($name: String!, $genre: String!, $authorId: ID!) {
     addBook(name: $name, genre: $genre, authorId: $authorId) {
@@ -31,22 +28,22 @@ const addBookMutation = gql`
 `;
 
 const getBookQuery = gql`
-  query($id: ID){
-    book(id: $id){
-       id
-       name
-       genre
-       author{
+  query ($id: ID) {
+    book(id: $id) {
+      id
+      name
+      genre
+      author {
         id
         name
         age
-        books{
+        books {
           name
           id
         }
-       }
+      }
     }
   }
-`
+`;
 
-export { getAuthorsQuery, getBooksQuery,addBookMutation,getBookQuery };
+export { getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery };
