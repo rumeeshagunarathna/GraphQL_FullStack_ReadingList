@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+//import styles from "../styles/styles";
 
 // Components (you'll need to convert these too!)
 import BookList from "../components/BookList";
@@ -8,18 +9,18 @@ import AddBook from "../components/AddBook";
 
 // Apollo Client setup
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql", // Use IP address for real devices
+  uri: "http://192.168.8.138:4000/graphql",
   cache: new InMemoryCache(),
 });
 
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.title}>My Reading List</Text>
         <BookList />
         <AddBook />
-      </ScrollView>
+      </View>
     </ApolloProvider>
   );
 }
@@ -36,5 +37,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
+    color: "#6A1B9A",
   },
 });

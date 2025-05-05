@@ -9,6 +9,7 @@ import {
 import { useQuery } from "@apollo/client";
 import { getBooksQuery } from "../queries/queries";
 import BookDetails from "./BookDetails";
+//import styles from "../styles/styles";
 
 const BookList = () => {
   const { loading, error, data } = useQuery(getBooksQuery);
@@ -51,9 +52,11 @@ const BookList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: 20,
     backgroundColor: "#fff",
     flex: 1,
+    paddingTop: 10,
+    flexGrow: 1,
   },
   infoText: {
     fontSize: 16,
@@ -64,6 +67,24 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderColor: "#eee",
+    margin: 12,
+    padding: 10,
+    borderRadius: 4,
+    borderColor: "#6A1B9A",
+    borderWidth: 1,
+    boxShadow: "1px 2px 3px rgba(0,0,0,0.3)",
+    color: "#6A1B9A",
+    cursor: "pointer",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+    color: "#444",
+  },
+  bookList: {
+    padding: 0,
   },
   list: {
     marginBottom: 16,
